@@ -58,41 +58,16 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.appendFile(fileName, data, (err) => 
-    err ? console.error(error) : console.log('README.md created!')
-)
+    fs.appendFile(fileName, data, (err) =>
+        err ? console.error(error) : console.log('README.md created!')
+    )
 }
 
 // TODO: Create a function to initialize app
-function init() {}
-
-inquirer.prompt([
-    {
-        type: 'input',
-        message: 'Enter your repo name:',
-        name: 'repoName',
-    },
-    {
-        type: 'input',
-        message: 'Enter your repo details',
-        name: 'userDetail'
-    }
-]).then((response) => {
-    let generatedReadMe = `# ${response.repoName}
-
-## Description 
-    
-${response.userDetail}
-
-## Usage
-    
-    
-## Links
-`
-
-    writeToFile('README.md', generatedReadMe)
-
-})
-
+function init() {
+    inquirer.prompt([questions]).then((response) => {
+        writeToFile(response);
+    })
+}
 // Function call to initialize app
 init();
