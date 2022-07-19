@@ -35,6 +35,13 @@ function init() {
 ```
 
 I used the `node:fs` module to access the file system and write the generated readme to a .md file.
+```
+function writeToFile(data) {
+    fs.writeFile(`newREADME.md`, generateMarkdown.generateNewMarkdown(data), (err) =>
+        err ? console.error(error) : console.log('README.md created!')
+    )
+}
+```
 
 ## Links
 
