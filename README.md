@@ -6,6 +6,8 @@ This project aims to showcase my ability in utilizing NodeJS by presenting a com
 
 ![](./assets/videos/demo-readme-generator.mp4)
 
+https://www.youtube.com/watch?v=zc7_J5-3qUo
+
 
 ## Usage
 
