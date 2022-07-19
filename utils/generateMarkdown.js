@@ -12,14 +12,36 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) { }
+function renderLicenseLink(license) {
+  let link = "";
+  licenses.forEach(element => {
+    if (element.name == license) {
+      link = `[${element.name}](${element.link})`;
+    }
+  });
+  return link;
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) { }
+function renderLicenseSection(license) {
+  if (license != "none") {
+    return `## License\nThis project is protected by ${renderLicenseLink(license)}.`
+  } else {
+    return ""
+  }
+}
+
+function renderLicenseTOC(license) {
+  if (license != "none") {
+    return `* [License](#license)`
+  } else {
+    return ""
+  }
+}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+function generateNewMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
 
@@ -132,6 +154,6 @@ function getLicenseNames() {
 }
 
 module.exports = {
-  generateMarkdown,
+  generateNewMarkdown,
   getLicenseNames
 };
